@@ -32,11 +32,12 @@ RUN apt-get update \
       lsb-release \
       aptitude \
       software-properties-common \
-  && add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+  && add-apt-repository -y "ppa:ubuntugis/ubuntugis-unstable" \
+  && add-apt-repository -y "deb https://qgis.org/ubuntu/ bionic main" \
   && apt-get update \
-  && aptitude install -y grass gdal qgis pycsw pygeoapi pyspatialite pystac \
+  && aptitude install -y grass qgis pycsw pygeoapi pyspatialite pystac \
      python-affine python-cartopy python-cligj python-django python-geopan python-mapnik python-pyproj python-shapel \
-     pywps qgis r-cran-sp rasterio saga proj cython \
+     pywps qgis r-cran-sp rasterio saga proj cython libgdal-grass python3-gdal \
   && apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/* \
   && pip3 install --no-cache \
       notebook \
