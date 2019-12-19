@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="Harald Schilly <hsy@sagemath.com>"
 ENV DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash", "-c"]
 
 ARG NB_USER
 ARG NB_UID
@@ -32,7 +33,12 @@ RUN apt-get update \
       lsb-release \
       aptitude \
       software-properties-common \
+      gpg \
   && add-apt-repository -y "ppa:ubuntugis/ubuntugis-unstable" \
+  && gpg --keyserver keyserver.ubuntu.com --recv-keys 6B827C12C2D425E227EDCA75089EBE08314DF160 \
+  && gpg -a --export 6B827C12C2D425E227EDCA75089EBE08314DF160 | apt-key add - \
+  && gpg --keyserver keyserver.ubuntu.com --recv-keys 51F523511C7028C3 \
+  && gpg -a --export 51F523511C7028C3 | apt-key add - \
   && add-apt-repository -y "deb https://qgis.org/ubuntu/ bionic main" \
   && apt-get update \
   && aptitude install -y grass qgis pycsw pygeoapi pyspatialite pystac \
