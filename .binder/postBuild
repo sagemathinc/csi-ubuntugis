@@ -1,0 +1,5 @@
+# cleanup
+apt-get clean
+cd
+rm -rf .git/
+rm -rf .binder/

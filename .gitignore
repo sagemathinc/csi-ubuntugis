@@ -1,0 +1,4 @@
+*.sage-jupyter2
+*.term-?.term*.term
+*.term.init
+*.term
