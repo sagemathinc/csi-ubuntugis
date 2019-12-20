@@ -2,4 +2,4 @@
 
 ... work in progress ...
 
-![](https://storage.googleapis.com/cocalc-extra/launch-cocalc-badge.svg)
+[![CoCalc](https://storage.googleapis.com/cocalc-extra/launch-cocalc-badge.svg)](https://cocalc.com)
